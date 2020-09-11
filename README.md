@@ -1,2 +1,2 @@
 # Spherical-Direct-Neighbours
-Direct Neighbours Mesh NN method adapted from Spherical UNet
+Direct Neighbours Mesh NN method with strided convolution 
