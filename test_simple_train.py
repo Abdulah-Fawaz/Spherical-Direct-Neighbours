@@ -22,7 +22,7 @@ from make_data_utils import raw_to_rot
 
 from MyDataLoader import My_dHCP_Data
 
-from test_models import Linear_simple, Convolutional_simple, Simple_Convolution_with_dropout, Conv_with_nebs
+from test_models import Linear_simple, Convolutional_simple, Simple_Convolution_with_dropout, Conv_with_nebs, FC_one
 
 
 import nibabel as nb 
@@ -175,7 +175,7 @@ for k in range(K):
 
     #model = Linear_simple(40962*4,1).to(device)
     #model = Convolutional_simple(4,1).to(device)
-    model = Conv_with_nebs(4,1).to(device)
+    model = FC_one(4,1).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=0.00001, weight_decay = 0.01)
 
 
@@ -290,15 +290,15 @@ for k in range(K):
     
 plt.scatter(x = list_of_all_labels, y = list_of_all_predictions)
 plt.plot(np.arange(25,45), np.arange(25,45))
-plt.savefig('exp_3_fig_all')
-
+#plt.savefig('exp_3_fig_all')
+#
 plt.show()
-
-np.save('experiment_3_predictions.npy', [list_of_all_labels, list_of_all_predictions])
-torch.save(model, 'model_exp_3')
-
-
-np.save('exp3_results',overall_results)
+#
+#np.save('experiment_3_predictions.npy', [list_of_all_labels, list_of_all_predictions])
+#torch.save(model, 'model_exp_3')
+#
+#
+#np.save('exp3_results',overall_results)
 
 
 
